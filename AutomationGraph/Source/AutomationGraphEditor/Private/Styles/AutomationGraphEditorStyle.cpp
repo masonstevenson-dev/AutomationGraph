@@ -57,7 +57,7 @@ void FAutomationGraphEditorStyle::Initialize()
 
 	StyleSet = MakeShareable(new FSlateStyleSet("AutomationGraphEditorStyle"));
 	
-	StyleSet->SetContentRoot(FPaths::ProjectPluginsDir() / TEXT("AutomationGraph/Resources"));
+	StyleSet->SetContentRoot(FPaths::ProjectPluginsDir() / TEXT("AutomationGraph/AutomationGraph/Resources"));
 	
 	StyleSet->Set("AutomationGraphEditor.NodeIcon", new IMAGE_BRUSH("Icons/cog_lg_64x", Icon16x16));
 	StyleSet->Set("AutomationGraphEditor.WrenchIcon", new ENGINE_IMAGE_BRUSH("Editor/Slate/Icons/wrench_16x", Icon16x16));
