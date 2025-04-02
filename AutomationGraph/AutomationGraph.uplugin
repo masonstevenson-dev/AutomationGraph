@@ -1,0 +1,30 @@
+{
+  "FileVersion": 3,
+  "Version": 1,
+  "VersionName": "1.0",
+  "EngineVersion": "5.4.0",
+  "FriendlyName": "Automation Graph",
+  "Description": "A framework for building automated tools",
+  "Category": "Automation Graph",
+  "CreatedBy": "Mason Stevenson",
+  "CreatedByURL": "http://exportgeometry.com",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": true,
+  "CanContainContent": false,
+  "IsBetaVersion": true,
+  "Modules": [
+    {
+      "Name": "AutomationGraphRuntime",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    },
+    {
+      "Name": "AutomationGraphEditor",
+      "Type": "Editor",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "Plugins": []
+}
