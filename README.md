@@ -2,9 +2,9 @@
 
 Author: Mason Stevenson
 
-https://masonstevenson.dev
+[https://masonstevenson.dev](https://masonstevenson.dev/)
 
-
+<br>
 
 AutomationGraph is a framework for defining sequences of Unreal Engine actions and various triggers to execute these sequences. It is a more generalized spin-off of an earlier project of mine, the Houdini Build Sequence Graph (see my [EnhancedHoudiniEngine](https://github.com/masonstevenson-dev/EnhancedHoudiniEngine) repo). My main motivation for creating this was that I wanted an easy way to trigger certain actions on editor start, such as running unit tests.
 
