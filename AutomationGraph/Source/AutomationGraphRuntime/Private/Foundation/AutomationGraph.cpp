@@ -43,9 +43,7 @@ TSubclassOf<UAutomationGraphExecutor> UAutomationGraph::GetExecutorType()
 
 bool UAutomationGraph::IsNodeSupported(TSubclassOf<UAutomationGraphNode> NodeType)
 {
-	// By default, only "official" nodes are supported. Users can create their own custom graph extension that supports
-	// a wider set of node types.
-	return NodeType->IsChildOf(UCoreAutomationGraphNode::StaticClass());
+	return NodeType->IsChildOf(UCoreAutomationGraphNode::StaticClass()) || NodeType->IsChildOf(UAutomationGraphUserNode::StaticClass());
 }
 
 void UAutomationGraph::UninitializeNodes()

@@ -94,3 +94,7 @@ private:
 // Used to distinguish "official" nodes defined by this plugin.
 UCLASS(Abstract)
 class AUTOMATIONGRAPHRUNTIME_API UCoreAutomationGraphNode : public UAutomationGraphNode { GENERATED_BODY() };
+
+// Used to distinguish "unofficial" nodes defined by users.
+UCLASS(Abstract)
+class AUTOMATIONGRAPHRUNTIME_API UAutomationGraphUserNode : public UAutomationGraphNode { GENERATED_BODY() };
