@@ -90,25 +90,25 @@ To define your own custom node, simply create a node that subclasses UAutomation
 UCLASS(meta=( DisplayName="MyNode" ))
 class UAGN_YourCustomNode : public UAutomationGraphUserNode
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	UAGN_YourCustomNode(const FObjectInitializer& Initializer);
+    UAGN_YourCustomNode(const FObjectInitializer& Initializer);
 
     // This is the category your node will be grouped with when you right click to pull up the list of
     // available nodes to create.
-	virtual FText GetNodeCategory() override { return return FText::FromString(TEXT("MyNodeCategory")); }
+    virtual FText GetNodeCategory() override { return return FText::FromString(TEXT("MyNodeCategory")); }
 
     // You can define your own node settings like this:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bSomeBooleanSetting = false;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    bool bSomeBooleanSetting = false;
     
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float SomeFloatSetting = 0.5f;
+    float SomeFloatSetting = 0.5f;
 
 protected:
     // This is the "tick" function for automation graph nodes.
-	virtual EAutomationGraphNodeState ActivateInternal(float DeltaSeconds) override;
+    virtual EAutomationGraphNodeState ActivateInternal(float DeltaSeconds) override;
 };
 ```
 
@@ -122,7 +122,7 @@ Put whatever node logic you want inside your ActivateInternal implementation. Th
 UAGN_YourCustomNode::UAGN_YourCustomNode(const FObjectInitializer& Initializer): Super(Initializer)
 {
     // This is the text that will appear in the edit field when you first create a node.
-	Title = FText::FromString("Wait");
+    Title = FText::FromString("Wait");
     
     // Default is 300.0 (5 minutes). Add this if you want to change from the default
     NodeTimeoutSec = 60.0f; // 1 minute
@@ -130,34 +130,34 @@ UAGN_YourCustomNode::UAGN_YourCustomNode(const FObjectInitializer& Initializer):
 
 EAutomationGraphNodeState UAGN_YourCustomNode::ActivateInternal(float DeltaSeconds)
 {
-	// Standard activation, ensures the node is active past this block.
-	{
-		EAutomationGraphNodeState CurrentState = GetState();
-		if (CurrentState == EAutomationGraphNodeState::Standby)
-		{
-			return SetState(EAutomationGraphNodeState::Active);
-		}
-		if (CurrentState != EAutomationGraphNodeState::Active)
-		{
-			return CurrentState;
-		}
-	}
+    // Standard activation, ensures the node is active past this block.
+    {
+        EAutomationGraphNodeState CurrentState = GetState();
+        if (CurrentState == EAutomationGraphNodeState::Standby)
+        {
+            return SetState(EAutomationGraphNodeState::Active);
+        }
+        if (CurrentState != EAutomationGraphNodeState::Active)
+        {
+            return CurrentState;
+        }
+    }
     
     bool bSuccess = DoSomeWork();
 
-	if (!bSuccess)
-	{
-		return SetState(EAutomationGraphNodeState::Error);
-	}
+    if (!bSuccess)
+    {
+        return SetState(EAutomationGraphNodeState::Error);
+    }
     
     bool bIsFinished = DoSomeOtherWork();
 
-	if (bIsFinished)
-	{
-		return SetState(EAutomationGraphNodeState::Finished);
-	}
+    if (bIsFinished)
+    {
+        return SetState(EAutomationGraphNodeState::Finished);
+    }
 
-	return EAutomationGraphNodeState::Active;
+    return EAutomationGraphNodeState::Active;
 }
 ```
 
