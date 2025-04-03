@@ -35,7 +35,7 @@ public class AutomationGraphRuntime : ModuleRules
 {
 	public AutomationGraphRuntime(ReadOnlyTargetRules Target) : base(Target)
 	{
-		bIsMarketplaceBuild = false;
+		bUseAnankeLog = true;
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
 		// UnityBuild is disabled because enabling it can temporarily hide errors caused by missing #includes- and then
@@ -46,13 +46,13 @@ public class AutomationGraphRuntime : ModuleRules
 		bFasterWithoutUnity = true;
 #endif
 
-		if (bIsMarketplaceBuild)
+		if (bUseAnankeLog)
 		{
-			PublicDefinitions.Add("WITH_ANANKE_LOG_AUTOMATION_GRAPH=0");
+			PublicDefinitions.Add("WITH_ANANKE_LOG_AUTOMATION_GRAPH=1");
 		}
 		else
 		{
-			PublicDefinitions.Add("WITH_ANANKE_LOG_AUTOMATION_GRAPH=1");
+			PublicDefinitions.Add("WITH_ANANKE_LOG_AUTOMATION_GRAPH=0");
 		}
 		
 		PublicIncludePaths.AddRange(
@@ -77,7 +77,7 @@ public class AutomationGraphRuntime : ModuleRules
 			}
 		);
 
-		if (!bIsMarketplaceBuild)
+		if (bUseAnankeLog)
 		{
 			PublicDependencyModuleNames.AddRange(
 				new string[]
@@ -107,5 +107,5 @@ public class AutomationGraphRuntime : ModuleRules
 		);
 	}
 	
-	public bool bIsMarketplaceBuild { get; set; }
+	public bool bUseAnankeLog { get; set; }
 }

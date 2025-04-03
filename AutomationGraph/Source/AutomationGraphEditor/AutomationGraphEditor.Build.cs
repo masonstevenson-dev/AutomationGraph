@@ -35,7 +35,7 @@ public class AutomationGraphEditor : ModuleRules
 {
 	public AutomationGraphEditor(ReadOnlyTargetRules Target) : base(Target)
 	{
-		bIsMarketplaceBuild = false;
+		bUseAnankeLog = true;
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 
 		// UnityBuild is disabled because enabling it can temporarily hide errors caused by missing #includes- and then
@@ -94,7 +94,7 @@ public class AutomationGraphEditor : ModuleRules
 			}
 		);
 		
-		if (!bIsMarketplaceBuild)
+		if (bUseAnankeLog)
 		{
 			PublicDependencyModuleNames.AddRange(
 				new string[]
@@ -129,5 +129,5 @@ public class AutomationGraphEditor : ModuleRules
 		);
 	}
 	
-	public bool bIsMarketplaceBuild { get; set; }
+	public bool bUseAnankeLog { get; set; }
 }
