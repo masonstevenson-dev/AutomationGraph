@@ -14,6 +14,12 @@ The system is pretty bare bones at the moment. This documentation will give you 
 
 <br>
 
+## Supported Engine Versions
+
+AutomationGraph currently supports **UE 5.4.**
+
+<br>
+
 ## Required Plugins
 
 This plugin uses my [AnankeCore](https://github.com/masonstevenson-dev/AnankeCore) plugin for logging. You can either install that plugin, or revert the logging back to standard UE logging by flipping the `bUseAnankeLogging` flag to false in `AutomationGraphRuntime.Build.cs` and `AutomationGraphEditor.Build.cs`.
