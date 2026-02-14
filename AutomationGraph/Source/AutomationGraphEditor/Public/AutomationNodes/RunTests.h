@@ -61,6 +61,7 @@ public:
 
 	virtual void TestsReady();
 
+	// These match to names defined in FAutomationTestBase::GetBeautifiedTestName()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FString> Tests;
 
